@@ -3,66 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navegação Teste</title>
+    <title>Navegação - Distribuidora de Acessórios</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
         }
         nav {
-            display: flex;
-    flex-wrap: wrap; /* Permite que os itens rolem se não houver espaço */
-    background-color: #333;
-    color: white;
-    padding: 15px;
+            background-color: #333;
+            overflow: hidden;
         }
         nav a {
+            float: left;
             color: white;
+            text-align: center;
+            padding: 14px 16px;
             text-decoration: none;
-            margin: 0 15px;
+            font-size: 21px;
         }
         nav a:hover {
-            text-decoration: underline;
+            background-color: #dddddd65;
+            color: black;
         }
-        
-        @media (max-width: 480px) {
-            nav a{
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            background-color: #333;
+            color: white;
+            padding: 14px 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f95e;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block; /* Exibe o submenu ao passar o mouse */
+        }
+
+        @media (max-width: 768px) {
+            nav a, .dropdown {
+                float: none; /* Remove o float para dropdown em telas menores */
                 display: block;
-                padding-bottom: 30px;
-                font-size: 24px;
+                width: 100%;
             }
-            nav{
-                display: block;
-                text-align: center;
-                
+            .dropdown-content {
+                position: static; /* Faz o submenu se comportar como um bloco */
+                display: none; /* Garante que o submenu esteja oculto por padrão */
             }
-        }
-        h1 ,p{
-            text-align: center;
-        }
-        img{
-            max-width: 100%; /* Garante que a imagem não exceda a largura do contêiner */
-    height: auto;    /* Mantém a proporção da imagem */
-    display: block;
-    margin: auto;
+            .dropdown:hover .dropdown-content {
+                display: block; /* Exibe o submenu quando hover em telas menores */
+            }
         }
     </style>
 </head>
 <body>
 
 <nav>
-    <a href="#home">Início</a>
-    <a href="#sobre">Sobre</a>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre Nós</a>
+    <div class="dropdown">
+        <a href="#">Produtos</a>
+        <div class="dropdown-content">
+            <a href="#telas">Telas</a>
+            <a href="#baterias">Baterias</a>
+            <a href="#tampas">Tampas</a>
+        </div>
+    </div>
     <a href="#servicos">Serviços</a>
     <a href="#contato">Contato</a>
-    <a href="#blog">Blog</a>
+    <a href="#carrinho">Carrinho</a>
+    
 </nav>
 
-<div id="home" style="padding: 20px;">
-    <h1>Bem-vindo ao Meu Site</h1>
-    <p>Esta é uma navegação para testar media queries!</p>
+<div id="inicio">
+    <h1>Bem-vindo à nossa distribuidora!</h1>
 </div>
-<img src="images.jpg" alt="">
+
 </body>
 </html>
